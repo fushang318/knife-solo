@@ -1,0 +1,38 @@
+{
+  "name": "rethinkdb",
+  "description": "Installs/Configures rethinkdb",
+  "long_description": "rethinkdb-cookbook\n==================\n[![Build Status](https://secure.travis-ci.org/sprij/rethinkdb-cookbook.png)](http://travis-ci.org/sprij/rethinkdb-cookbook)\n<br/><br/>Cookbook for [RethinkDB](http://rethinkdb.com/docs).\n\nRequirements\n==================\n## Cookbooks\nThis cookbook depends on the following opscode community cookbooks:\n * apt \n * yum\n * yum-epel\n * build-essentials\n * nodejs\n\n## Platforms\nThe following families are supported by this cookbook:\n * Debian\n * RHEL\n * Fedora\n\nNote that rethinkdb::package is only supported for Ubuntu and CentOS.\n\nThe integration tests cover the platforms:\n * Ubuntu 13.10\n * Debian 7.4\n * Centos 6.5\n * Fedora 19\n\nAttributes\n==================\nThis section describes available attributes.\n##Default\nDefault attributes:\n* **['rethinkdb']['install_method']**\n    * Installation method\n    * Default: package\n    * Values: package or source\n* **['rethinkdb']['version']**\n    * Version to install\n    * Default: 1.11.3\n\n##Package\nAttributes for the package recipe:\n* **['rethinkdb']['package']['apt']['url']**\n    * Default: http://ppa.launchpad.net/rethinkdb/ppa/ubuntu/\n* **['rethinkdb']['package']['apt']['key_server']**\n    * key server\n    * Default: keyserver.ubuntu.com\n* **['rethinkdb']['package']['apt']['key']**\n    * key\n    * Default: 11D62AD6\n* **['rethinkdb']['package']['yum']['url']**\n    * YUM repository\n    * Default: \"http://download.rethinkdb.com/centos/6/#{node['kernel']['machine']}\"\n\n##Source\nAttributes that handle pre-requirements:\n* **['rethinkdb']['src']['install_nodejs']**\n    * Determines if nodejs cookbook will be used to install node and npm\n    * Default: true\n* **['rethinkdb']['src']['apt']['dependencies']**\n    * Dependencies to install with APT\n    * Default:\n        * protobuf-compiler \n        * libprotobuf-dev \n        * libv8-dev \n        * libgoogle-perftools-dev \n        * libboost-all-dev \n        * libncurses5-dev\n* **['rethinkdb']['src']['yum']['dependencies']**\n    * Dependencies to install with YUM\n    * Default:\n        * protobuf-compiler \n        * protobuf-devel \n        * v8-devel\n        * gperftools-devel \n        * boost-static \n        * ncurses-devel\n\nAttributes related with remote and local paths: \n* **['rethinkdb']['src']['dist_url']**\n    * Distributions URL\n    * Default: http://download.rethinkdb.com/dist/\n* **['rethinkdb']['src']['tar_filename']**\n    * Filename to download\n    * Default: \"rethinkdb-#{default['rethinkdb']['src']['version']}.tgz\"\n* **['rethinkdb']['src']['path']** \n    * Path to download the source to.\n    * Default: /usr/local/src\n\nAttributes that control compiling the source code:\n* **['rethinkdb']['src']['config_options']** \n    * Additional options to pass to ./config\n    * Default: nil\n    * If the default isn't changed '--dynamic tcmalloc_minimal' will be used\n    for non-Debian platform families\n\n\nRecipes\n==================\n\nThis cookbook currently supports the following recipes:\n* **rethinkdb**: installs rethinkdb\n* **rethinkdb::package**: installs rethinkdb from package.\n* **rethinkdb::source**: installs rethinkdb from source\n",
+  "maintainer": "sprij",
+  "maintainer_email": "s.rijo@yahoo.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu,": ">= 0.0.0",
+    "centos,": ">= 0.0.0",
+    "debian,": ">= 0.0.0",
+    "fedora": ">= 0.0.0"
+  },
+  "dependencies": {
+    "apt": ">= 0.0.0",
+    "yum": ">= 3.0",
+    "yum-epel": ">= 0.0.0",
+    "build-essential": ">= 0.0.0",
+    "nodejs": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.1.0"
+}
