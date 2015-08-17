@@ -1,5 +1,18 @@
+# 设置 vpn
+include_recipe "myvpn"
+
+# 开始 vpn
+myvpn_open do
+  action :run
+end
+
 # 安装 rvm ruby
 include_recipe "rvm::system"
+
+# 关闭 vpn
+myvpn_close do
+  action :run
+end
 
 # 安装 git
 include_recipe "git"

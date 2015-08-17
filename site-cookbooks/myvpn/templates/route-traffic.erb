@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+/sbin/ip route add 106.186.119.248 via <%= node["myvpn"]["gateway"] %> 
+/sbin/ip route del default
+/sbin/ip route add default dev ppp0
